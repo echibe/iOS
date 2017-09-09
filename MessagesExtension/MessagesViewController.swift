@@ -54,7 +54,6 @@ class MessagesViewController: MSMessagesAppViewController {
     func setReminderDate(dayOffset: Int, hourOffset: Int, minuteOffset: Int){
         print("button pressed")
         let reminder = EKReminder(eventStore: self.eventStore)
-        reminder.title = "Text back "
         
         reminder.calendar = eventStore.defaultCalendarForNewReminders()
         
@@ -65,7 +64,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         reminder.dueDateComponents = dateDue
         reminder.addAlarm(EKAlarm(absoluteDate: dateDue.date!))
-        getName(reminder: reminder)
+        saveReminder(reminder: reminder, name: "buddy")
     }
     
     func saveReminder(reminder: EKReminder, name: String){
